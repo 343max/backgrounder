@@ -8,7 +8,7 @@ class backgrounderWorker {
 		$serializedPayload = serialize($payload);
 
 		$request = array(
-			"POST http://myhammer.122.2o7.net/backgrounder/worker.php HTTP/1.0",
+			"POST http://localhost/backgrounder/worker.php HTTP/1.0",
 			"Content-Length: " . strlen($serializedPayload),
 			"",
 			$serializedPayload,
