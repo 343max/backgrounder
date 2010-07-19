@@ -1,0 +1,3 @@
+Backgrounder is a set of php classes that enables the use of something thread or process like in php.
+
+Take a look at the sample.php, SampleWorker.php and sampleServer.php to see how it works.
