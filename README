@@ -1,3 +1,6 @@
 Backgrounder is a set of php classes that enables the use of something thread or process like in php.
 
-Take a look at the sample.php, SampleWorker.php and sampleServer.php to see how it works.
+Take a look at the examples to see how it works.
+
+- simple: Start 10 Threads, and print the results in order of completion
+- headless: Start 1 Thread that takes 10 seconds and writes something to /tmp/background.log. The process doesn't wait for the result
