@@ -15,7 +15,7 @@ class BackgroundPool {
 		$this->processes[] = $controller;
 	}
 
-	public function add(BackgroundWorker $worker) {
+	public function addAndRun(BackgroundWorker $worker) {
 		$controller = new BackgroundController($this->serverUrl, $this->serverHost);
 		$controller->sendRequest($worker);
 		$this->addController($controller);

@@ -60,6 +60,10 @@ class BackgroundController {
 			throw new Exception('Could not unserialize response: ' . $this->getRawResponse());
 		}
 
+		if(is_a($worker, 'Exception')) {
+			throw $worker;
+		}
+
 		return $worker;
 	}
 

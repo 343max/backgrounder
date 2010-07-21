@@ -25,9 +25,13 @@ class BackgroundServer {
 	public static function serve() {
 		$worker = self::getWorker();
 
-		$worker->runThread();
+		try {
+			$worker->runThread();
+			self::printResult($worker);
+		} catch(Exception $exception) {
+			self::printResult($exception);
+		}
 
-		self::printResult($worker);
 	}
 
 }

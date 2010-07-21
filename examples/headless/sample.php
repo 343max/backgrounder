@@ -8,6 +8,8 @@ $startTime = microtime(TRUE);
 $pool = new BackgroundPool('http://localhost/backgrounder/examples/headless/server.php');
 
 $worker = new HeadlessWorker();
-$pool->add($worker);
+$pool->addAndRun($worker);
 
-#$pool->waitForAllWorkers(2);
+// now our background process is running, even when this process exits
+
+echo 'completed in ' . (microtime(TRUE) - $startTime) . ' tail -f /tmp/background.log to see some results.';

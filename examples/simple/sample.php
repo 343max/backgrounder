@@ -10,14 +10,15 @@ $pool = new BackgroundPool('http://localhost/backgrounder/examples/simple/server
 // initialize some worker classes, add them to the pool and fire up the requests to start the process
 for($i = 0; $i < 10; $i++) {
 	$worker = new SampleWorker($i);
-	$pool->add($worker);
+	$pool->addAndRun($worker);
 }
 
 // some benchmarks
 echo 'all requests sent: ' . (microtime(TRUE) - $startTime) . '<br>';
 
 // wait for our workers to complete
-$pool->waitForAllWorkers();
+// it's allways a good idea to use an timeout
+$pool->waitForAllWorkers(10);
 
 // final benchmark
 echo 'done: ' . (microtime(TRUE) - $startTime);
