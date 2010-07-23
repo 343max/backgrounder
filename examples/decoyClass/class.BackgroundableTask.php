@@ -37,17 +37,20 @@ class BackgroundableTask {
 
 	public function foo($a, $b) {
 		sleep(1);
-		file_put_contents('/tmp/decoy.log', __METHOD__ . '(' . join(', ', func_get_args()) . ");\n", FILE_APPEND);
+		$params = func_get_args();
+		file_put_contents('/tmp/decoy.log', __METHOD__ . '(' . join(', ', $params) . ");\n", FILE_APPEND);
 	}
 
 	public function bar($x, $y, $z) {
 		sleep(1);
-		file_put_contents('/tmp/decoy.log', __METHOD__ . '(' . join(', ', func_get_args()) . ");\n", FILE_APPEND);
+		$params = func_get_args();
+		file_put_contents('/tmp/decoy.log', __METHOD__ . '(' . join(', ', $params) . ");\n", FILE_APPEND);
 	}
 
 	public function fooBar($a, $b, $c) {
 		sleep(1);
-		file_put_contents('/tmp/decoy.log', __METHOD__ . '(' . join(', ', func_get_args()) . ");\n", FILE_APPEND);
+		$params = func_get_args();
+		file_put_contents('/tmp/decoy.log', __METHOD__ . '(' . join(', ', $params) . ");\n", FILE_APPEND);
 	}
 
 }

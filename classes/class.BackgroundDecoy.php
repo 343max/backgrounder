@@ -31,10 +31,12 @@ class BackgroundDecoy implements BackgroundWorker {
 	}
 
 	public function runThread() {
+		ignore_user_abort(1);
+
 		ob_start();
 
 		$className = $this->modelClassName;
-		$object = $className::getInstance(FALSE);
+		$object = call_user_func_array($className . '::getInstance', array(FALSE));
 		foreach($this->methodCallQueue as $call) {
 			call_user_func_array(array($object, $call['method']), $call['arguments']);
 		}
