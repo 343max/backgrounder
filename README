@@ -5,3 +5,4 @@ Take a look at the examples to see how it works.
 - simple: Start 10 Threads, and print the results in order of completion
 - headless: Start 1 Thread that takes 10 seconds and writes something to /tmp/background.log. The process doesn't wait for the result
 - exception: Shows what happens when a worker process throws an exception
+- decoyClass: sample, how to handle calls transparent.
