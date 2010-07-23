@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../init.php');
+require_once('../init.php');
 
 BackgroundDecoy::$serverUrl = 'http://localhost/backgrounder/examples/decoyClass/server.php';
 

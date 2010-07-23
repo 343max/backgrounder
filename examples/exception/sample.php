@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__) . '/../../init.php');
+require_once(dirname(__FILE__) . '/../init.php');
 
 // Create a new pool for our workers
 $pool = new BackgroundPool('http://localhost/backgrounder/examples/exception/server.php');
