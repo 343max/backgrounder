@@ -23,6 +23,13 @@ class BackgroundServer {
 	}
 	
 	public static function serve() {
+		if(!BackgroundAuthentification::validate(@$_SERVER['PHP_AUTH_USER'], @$_SERVER['PHP_AUTH_PW'])) {
+			header('HTTP/1.1 401 Unauthorized');
+			header('WWW-Authenticate: Basic realm="Service"');
+			echo 'wrong password!';
+			return false;
+		}
+
 		$worker = self::getWorker();
 
 		try {

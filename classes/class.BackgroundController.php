@@ -14,9 +14,14 @@ class BackgroundController {
 	public function sendRequest(BackgroundWorker $object) {
 		$serializedParameters = serialize($object);
 
+		if(!$this->serverUrl) {
+			throw new Exception('No Server URL given.');
+		}
+
 		$request = array(
 			"POST " . $this->serverUrl . " HTTP/1.0",
 			"Content-Length: " . strlen($serializedParameters),
+			BackgroundAuthentification::authorizationHttpHeader(),
 			"",
 			$serializedParameters,
 		);
